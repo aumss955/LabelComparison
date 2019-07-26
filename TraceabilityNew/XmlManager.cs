@@ -88,6 +88,10 @@ namespace TraceabilityNew
                         case 7:
                             hash_config.Add("label_MAC", PictureNode.ChildNodes.Item(i).InnerText);
                             break;
+                        case 8:
+                            hash_config.Add("print_command", PictureNode.ChildNodes.Item(i).InnerText);
+                            break;
+
                     }
                     
                 }

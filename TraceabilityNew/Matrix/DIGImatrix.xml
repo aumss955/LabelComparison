@@ -11,6 +11,7 @@
         <label3></label3>
         <label4></label4>
         <MAC>12345</MAC>
+        <print_command>print Dut_SN\n print ethaddr\n</print_command>
      </Partnumber>
      <Partnumber name="50001927-01">
 		<ReadSerialport>True</ReadSerialport>
@@ -21,6 +22,7 @@
         <label3>D:\SVI\picture\IMG_20190722_105933.jpg</label3>
         <label4>D:\SVI\picture\IMG_20190722_105933.jpg</label4>
         <MAC>12345</MAC>
+       <print_command>print SN</print_command>
      </Partnumber>
    </Information>
 </Matrix>

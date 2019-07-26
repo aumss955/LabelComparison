@@ -46,5 +46,18 @@ namespace TraceabilityNew.Properties {
                 this["DatabasePath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\\\Users\\\\AumHey\\\\Documents\\\\Visual Studio 2015\\\\Projects\\\\TraceabilityNew\\Trace" +
+            "abilityNew\\\\bin\\\\Debug")]
+        public string MatrixPath {
+            get {
+                return ((string)(this["MatrixPath"]));
+            }
+            set {
+                this["MatrixPath"] = value;
+            }
+        }
     }
 }

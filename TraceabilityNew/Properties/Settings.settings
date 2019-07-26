@@ -8,5 +8,8 @@
     <Setting Name="DatabasePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\\Users\\AumHey\\Desktop\\Traceability_DB\\DIGI_Result.db</Value>
     </Setting>
+    <Setting Name="MatrixPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\\Users\\AumHey\\Documents\\Visual Studio 2015\\Projects\\TraceabilityNew\TraceabilityNew\\bin\\Debug</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

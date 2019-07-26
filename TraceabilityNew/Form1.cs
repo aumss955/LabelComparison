@@ -217,8 +217,12 @@ namespace TraceabilityNew
 
                 if (serialPort1.IsOpen)
                 {
-                    serialPort1.Write("print SN\n");
+                    //Read from XML for cmd
+                    string cmd = hash_config["print_command"].ToString();
+                  
+                    serialPort1.Write(cmd+"\n");
                     serialPort1.Write("print ethaddr\n");
+                    //serialPort1.WriteLine(cmd);
                     textBox1.AppendText("print SN" + Environment.NewLine);
                     serialPort1.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
                     serialPort1.WriteTimeout = 1000;
@@ -228,7 +232,7 @@ namespace TraceabilityNew
                     Thread.Sleep(500);
 
 
-                    if (SN != string.Empty && macAddress != string.Empty)
+                    if (SN != null && macAddress != null)
                     {
                         serialPort1.DataReceived -= DataReceivedHandler;
                     }
@@ -274,16 +278,7 @@ namespace TraceabilityNew
 
         private void btnRecieve_Click(object sender, EventArgs e)
         {
-            bool test;
-            XmlManager xml = new XmlManager(hash_config, "C:\\Users\\AumHey\\Documents\\Visual Studio 2015\\Projects\\TraceabilityNew\\TraceabilityNew\\bin\\Debug\\Matrix\\DIGImatrix.xml");
-            //xml.getInfo("C:\\Users\\AumHey\\Documents\\Visual Studio 2015\\Projects\\TraceabilityNew\\TraceabilityNew\\bin\\Debug\\Matrix\\DIGImatrix.xml");
-            //MessageBox.Show(hash_config["Label1"].ToString());
-
-            test = xml.checkPartnumber("123456789");
-            Scanlabel test_scan = new Scanlabel("Label1", this);
-
-            test_scan.ShowDialog();
-
+           
         }
 
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
@@ -361,6 +356,7 @@ namespace TraceabilityNew
             if (hash_config["ReadSerialport"].ToString() == "True")
             {
                 this.btOpen_Click(sender, e);
+                skip_openPort = false;
             }
             else
             {
@@ -441,7 +437,7 @@ namespace TraceabilityNew
                                         tbMAC = scanMac.gettbText();
 
                                         SQLiteManager sql_mac = new SQLiteManager(Properties.Settings.Default.DatabasePath);
-                                        sqlRow_countMAC = sql_mac.countRow(sql_mac.CreateConnection(), "SELECT * FROM MACadress WHERE data_read LIKE '%" + tbMAC + "%'");
+                                        sqlRow_countMAC = sql_mac.countRow(sql_mac.CreateConnection(), "SELECT * FROM MACadress WHERE data_read LIKE '%" + tbMAC + "%' AND status = 'PASS';");
 
                                         if (sqlRow_countMAC == 0)
                                         {
@@ -759,6 +755,7 @@ namespace TraceabilityNew
         private void Form1_Shown(object sender, EventArgs e)
         {
             string configPath = Path.Combine(System.IO.Directory.GetCurrentDirectory()+"\\Matrix", "DIGImatrix.xml");
+  
             //MessageBox.Show("HAS SHOWN");
             ScanPN scanPN = new ScanPN(this,"PartNumber");
             scanPN.ShowDialog();
@@ -768,7 +765,7 @@ namespace TraceabilityNew
             this.lbPN.Text = this.Partnumber;
             this.lbWO.Text = this.Wo;
 
-            //XmlManager xml1 = new XmlManager(hash_config, "C:\\Users\\AumHey\\Documents\\Visual Studio 2015\\Projects\\TraceabilityNew\\TraceabilityNew\\bin\\Debug\\Matrix\\DIGImatrix.xml");
+           
             XmlManager xml1 = new XmlManager(hash_config, configPath);
             xml1.getInfo(this.Partnumber);
 

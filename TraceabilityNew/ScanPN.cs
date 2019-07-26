@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,8 @@ namespace TraceabilityNew
             main.TextBoxAppend("===== SCAN "+Scan_stage+" =====" + Environment.NewLine);
             main.TextBoxAppend("INPUT : " + this.txtScan.Text + Environment.NewLine);
             //main.inserttoArrayList(this.txtScan.Text);
-            XmlManager xmlPartnumber = new XmlManager(null, "C:\\Users\\AumHey\\Documents\\Visual Studio 2015\\Projects\\TraceabilityNew\\TraceabilityNew\\bin\\Debug\\Matrix\\DIGImatrix.xml");
+            string configPath = Path.Combine(System.IO.Directory.GetCurrentDirectory() + "\\Matrix", "DIGImatrix.xml");
+            XmlManager xmlPartnumber = new XmlManager(null, configPath);
             bool partnumberExist;
 
             if (this.txtScan.Text != "")
