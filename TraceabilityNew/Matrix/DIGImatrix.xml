@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" ?>
+<DIGIMatrixInfo>
+<Matrix>
+   <Information>
+     <Partnumber name="XBC-V1-UT-101">
+		<ReadSerialport>False</ReadSerialport>
+		<label_check>2</label_check>
+		<label_length>28,36</label_length>
+        <label1>C:\Users\AumHey\Documents\Visual Studio 2015\Projects\TraceabilityNew\TraceabilityNew\bin\Debug\Picture\XBC-V1-UT-101\1.jpg</label1>
+        <label2>C:\Users\AumHey\Documents\Visual Studio 2015\Projects\TraceabilityNew\TraceabilityNew\bin\Debug\Picture\XBC-V1-UT-101\2.jpg</label2>
+        <label3></label3>
+        <label4></label4>
+        <MAC>12345</MAC>
+     </Partnumber>
+     <Partnumber name="50001927-01">
+		<ReadSerialport>True</ReadSerialport>
+		<label_check>2</label_check>
+        <Label_length>28,36</Label_length>
+        <Label1>D:\SVI\picture\IMG_20190722_105933.jpg</Label1>
+        <Label2>D:\SVI\picture\IMG_20190722_105933.jpg</Label2>
+        <label3>D:\SVI\picture\IMG_20190722_105933.jpg</label3>
+        <label4>D:\SVI\picture\IMG_20190722_105933.jpg</label4>
+        <MAC>12345</MAC>
+     </Partnumber>
+   </Information>
+</Matrix>
+</DIGIMatrixInfo>
