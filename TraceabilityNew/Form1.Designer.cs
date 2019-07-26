@@ -67,6 +67,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnLoadTest = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -432,12 +433,23 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // btnLoadTest
+            // 
+            this.btnLoadTest.Location = new System.Drawing.Point(467, 160);
+            this.btnLoadTest.Name = "btnLoadTest";
+            this.btnLoadTest.Size = new System.Drawing.Size(75, 23);
+            this.btnLoadTest.TabIndex = 21;
+            this.btnLoadTest.Text = "LoadTest";
+            this.btnLoadTest.UseVisualStyleBackColor = true;
+            this.btnLoadTest.Click += new System.EventHandler(this.btnLoadTest_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(560, 390);
+            this.Controls.Add(this.btnLoadTest);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.lbDBstatus);
             this.Controls.Add(this.label7);
@@ -518,6 +530,7 @@
         private System.Windows.Forms.Label lbWO;
         private System.Windows.Forms.Label lbPN;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnLoadTest;
     }
 }
 

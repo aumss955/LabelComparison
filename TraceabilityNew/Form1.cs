@@ -488,7 +488,7 @@ namespace TraceabilityNew
                                     if (sImei[0] == sImei[i - 1])
                                     {
                                         textBox1.AppendText(DateTime.Now.ToString("HH:mm:ss") + "Imei comparison" + Environment.NewLine);
-                                        MessageBox.Show(sImei[0].ToString() + "==" + sImei[i - 1].ToString());
+                                        //MessageBox.Show(sImei[0].ToString() + "==" + sImei[i - 1].ToString());
                                         this.lbStatus.Text = "PASS";
                                         this.lbStatus.BackColor = Color.GreenYellow;
                                         this.pictureBox1.BackColor = Color.GreenYellow;
@@ -496,6 +496,8 @@ namespace TraceabilityNew
                                     }
                                     else
                                     {
+                                        textBox1.AppendText(DateTime.Now.ToString("HH:mm:ss") + "IMEI Label 1 กับ Label2 ไม่เหมือนกัน" + Environment.NewLine);
+                                        MessageBox.Show("IMEI Label 1 กับ Label2 ไม่เหมือนกัน");
                                         this.lbStatus.Text = "FAIL";
                                         this.lbStatus.BackColor = Color.Red;
                                         this.pictureBox1.BackColor = Color.Red;
@@ -571,6 +573,7 @@ namespace TraceabilityNew
 
                 if (skip_openPort.ToString() == "False")
                 {
+                    
                     foreach (string s in al)
                     {
                         sw.Write(s);
@@ -583,21 +586,48 @@ namespace TraceabilityNew
                 {
                     sw.Write("IMEI:");
                     sb_label_scan.Append("IMEI:");
+
                     foreach (string imei in sImei)
                     {
+                        
                         sw.Write(imei);
                         sw.Write(",");
                         sb_label_scan.Append(imei + ",");
+       
                     }
 
                     sw.Write("SN:");
                     sb_label_scan.Append("SN:");
-                    foreach (string sn in sSn)
+
+                    //Fixed "," issue of database inserting 26-7-19
+                    for(var i = 0; i < sSn.Count; i++)
                     {
-                        sw.Write(sn);
+                        sw.Write(sSn[i]);
+
+
                         sw.Write(",");
-                        sb_label_scan.Append(sn + ",");
+
+                        if(i == sSn.Count - 1)
+                        {
+                            sb_label_scan.Append(sSn[i]);
+                        }
+                        else
+                        {
+                            sb_label_scan.Append(sSn[i] + ",");
+                        }
+                        
                     }
+
+
+
+                    //foreach (string sn in sSn)
+                    //{
+                    //    sw.Write(sn);
+
+                 
+                    //    sw.Write(",");
+                    //    sb_label_scan.Append(sn + ",");
+                    //}
 
                     txtSN.Text = labelText.ToString();
                 }
@@ -754,6 +784,11 @@ namespace TraceabilityNew
             }
             //MessageBox.Show(hash_config["Label1"].ToString());
 
+        }
+
+        private void btnLoadTest_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }

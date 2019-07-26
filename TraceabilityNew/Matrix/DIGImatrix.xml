@@ -14,7 +14,7 @@
      </Partnumber>
      <Partnumber name="50001927-01">
 		<ReadSerialport>True</ReadSerialport>
-		<label_check>2</label_check>
+		<label_check>3</label_check>
         <Label_length>28,36</Label_length>
         <Label1>D:\SVI\picture\IMG_20190722_105933.jpg</Label1>
         <Label2>D:\SVI\picture\IMG_20190722_105933.jpg</Label2>
